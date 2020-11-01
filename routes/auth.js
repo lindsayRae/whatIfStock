@@ -4,7 +4,21 @@ const router = express.Router()
 const crypto = require('crypto')
 const db = require('../db')
 
+const passport = require('../auth')
+
 module.exports = router
+
+router.post('/login', passport.authenticate('local'), (req, res) => {
+    console.log('req.user: ', req.user);
+    res.send({ status: 'OK' });
+});
+
+router.post('/me', (req, res) => {
+    console.log('/me .. req.user', req.user);
+  
+    const { user } = req;
+    res.send(user);
+});
 
 router.post('/register', async (req, res) => {
     const {email, password} = req.body
