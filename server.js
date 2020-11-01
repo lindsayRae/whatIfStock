@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
   res.json([
-      {id:1, title: 'Here is ddata from serer.js'}
+      {id:1, title: 'Here is data from server.js'}
     ])
 })
 
