@@ -2,13 +2,14 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 1234
 const passport = require('./auth')
-
+const cors = require('cors');
 const path = require('path')
 
 const session = require('express-session')
 const routes = require('./routes')
 
 app.use(express.json());
+app.use(cors());
 
 //app.use('/', routes)
 
@@ -31,7 +32,7 @@ const isUserLoggedIn = (req, res, next) => {
   return res.status(403).send("You are not authorized")
 }
 
-app.get('/', isUserLoggedIn, (req, res) => {
+app.get('/api', isUserLoggedIn, (req, res) => {
   res.json([
       {id:1, title: 'Here is data from server.js'}
     ])

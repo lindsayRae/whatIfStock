@@ -1,6 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
+import {UserContext} from '../../context/UserContext';
 
 export default () => {
+
+  const {user, setUser} = useContext(UserContext)
+  console.log('user', user)
+  console.log('setUser', setUser)
 
     return (
       <div className="main">
