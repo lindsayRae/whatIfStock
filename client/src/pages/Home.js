@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import { Link } from 'react-router-dom';
 
+import './Home.css'
 const usePrices = () => {
     const [price, setPrices] = useState([])
   
@@ -18,16 +20,19 @@ const usePrices = () => {
     const prices = usePrices()
     console.log(prices)
     return (
-      <div className="App">
-      <h1>Welcome to whatIfSTOCK</h1>
-      <h2>Todays recap of Tesla - TLSA</h2>
-        <ul>
-          <li>Open Price of the day: {prices.o}</li>
-          <li>High price of the day: {prices.h}</li>
-          <li>Low price of the day: {prices.l}</li>
-          <li><h4>Current price: {prices.c}</h4></li>
-          <li>Previous close price: {prices.pc}</li>
-        </ul>
+      <div className="main">
+        <h1>Welcome to whatIfSTOCK</h1>
+        <h2>Todays recap of Tesla - TLSA</h2>
+          <ul>
+            <li>Open Price of the day: {prices.o}</li>
+            <li>High price of the day: {prices.h}</li>
+            <li>Low price of the day: {prices.l}</li>
+            <li><h4>Current price: {prices.c}</h4></li>
+            <li>Previous close price: {prices.pc}</li>
+          </ul>
+          <Link to={`/trade`}>
+            <button>Login to Trade</button>
+          </Link>
       </div>
     );
   }
